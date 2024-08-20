@@ -1,3 +1,4 @@
+// -> VARIABLES GLOBALES
 const people = [
     {
         name: "Carly",
@@ -15,8 +16,15 @@ const people = [
         yearOfDeath: 1941,
     },
 ];
+// Elementos del HTML.
+const inputPersonName = document.getElementById("input-personName");
+const inputPersonYearOfBirth = document.getElementById("input-personYearOfBirth");
+const inputPersonYearOfDeath = document.getElementById("input-personYearOfDeath");
+const buttonAddPerson = document.getElementById("button-addPerson");
+const outputOldestPersonName = document.getElementById("output-oldestPersonName");
 
-function findTheOldest() {
+// -> FUNCIONES
+function findTheOldest(people) {
     let oldest = people[0];
 
     for (let i = 1; i < people.length; i++) {
@@ -37,20 +45,14 @@ function addPerson(name, yearOfBirth, yearOfDeath) {
     });
 }
 
-// Elementos del HTML.
-const inputPersonName = document.getElementById("input-personName");
-const inputPersonYearOfBirth = document.getElementById("input-personYearOfBirth");
-const inputPersonYearOfDeath = document.getElementById("input-personYearOfDeath");
-const buttonAddPerson = document.getElementById("button-addPerson");
-const buttonSearchOldestPerson = document.getElementById("button-searchOldestPerson");
-const outputOldestPersonName = document.getElementById("output-oldestPersonName");
+showTheOldest();
 
 function showTheOldest() {
-    outputOldestPersonName.textContent = findTheOldest();
+    outputOldestPersonName.textContent = findTheOldest(people);
 }
 
-buttonAddPerson.addEventListener("click", () =>
-    addPerson(inputPersonName.value, parseInt(inputPersonYearOfBirth.value), parseInt(inputPersonYearOfDeath.value)));
-
-buttonSearchOldestPerson.addEventListener("click", () =>
-    showTheOldest());
+// -> EVENTOS
+buttonAddPerson.addEventListener("click", function () {
+    addPerson(inputPersonName.value, parseInt(inputPersonYearOfBirth.value), parseInt(inputPersonYearOfDeath.value));
+    showTheOldest();
+});

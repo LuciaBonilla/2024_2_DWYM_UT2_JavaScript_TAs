@@ -1,3 +1,11 @@
+// -> VARIABLES GLOBALES
+// Elementos del HTML.
+const inputNumberA = document.getElementById("input-numberA");
+const inputNumberB = document.getElementById("input-numberB");
+const buttonCalculate = document.getElementById("button-calculate");
+const outputSum = document.getElementById("output-sum");
+
+// -> FUNCIONES
 function sumAll(a, b) {
     let sum = 0;
     let min;
@@ -19,16 +27,11 @@ function sumAll(a, b) {
     return sum;
 }
 
-// Elementos del HTML.
-const inputNumberA = document.getElementById("input-numberA");
-const inputNumberB = document.getElementById("input-numberB");
-const buttonCalculate = document.getElementById("button-calculate");
-const outputSum = document.getElementById("output-sum");
-
-function executeSumAll() {
+function showSumAll() {
     outputSum.textContent = sumAll(parseInt(inputNumberA.value), parseInt(inputNumberB.value));
 }
 
+// -> EVENTOS
 buttonCalculate.addEventListener("click", () =>
-    executeSumAll()
+    showSumAll()
 );

@@ -1,3 +1,10 @@
+// -> VARIABLES GLOBALES
+// Elementos del HTML.
+const inputPasswordLength = document.getElementById("input-passwordLength");
+const buttonCreatePassword = document.getElementById("button-createPassword");
+const outputPassword = document.getElementById("output-password");
+
+// -> FUNCIONES
 function generatePassword(length) {
     let password = "";
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$-_¿?¡!";
@@ -15,15 +22,11 @@ function generatePassword(length) {
     return password;
 }
 
-// Elementos del HTML.
-const inputPasswordLength = document.getElementById("input-passwordLength");
-const buttonCreatePassword = document.getElementById("button-createPassword");
-const outputPassword = document.getElementById("output-password");
-
 function showPassword() {
     outputPassword.textContent = generatePassword(parseInt(inputPasswordLength.value));
 }
 
+// -> EVENTOS
 buttonCreatePassword.addEventListener("click", () =>
     showPassword()
 );

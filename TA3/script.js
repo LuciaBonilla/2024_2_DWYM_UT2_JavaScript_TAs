@@ -1,6 +1,13 @@
-// Variable global "array".
+// -> VARIABLES GLOBALES
 const array = [];
+// Elementos del HTML.
+const inputElementToAdd = document.getElementById("input-elementToAdd");
+const buttonAdd = document.getElementById("button-add");
+const inputElementToRemove = document.getElementById("input-elementToRemove");
+const buttonRemove = document.getElementById("button-remove");
+const outputArray = document.getElementById("output-array");
 
+// -> FUNCIONES
 function removeFromArray(item) {
     const index = array.indexOf(item);
 
@@ -11,28 +18,22 @@ function removeFromArray(item) {
     }
 }
 
-function addItemToArray(item) {
+function addToArray(item) {
     // Agrega el item al final.
     array.push(item);
 }
 
-// Elementos del HTML.
-const inputElementToAdd = document.getElementById("input-elementToAdd");
-const buttonAdd = document.getElementById("button-add");
-const inputElementToRemove = document.getElementById("input-elementToRemove");
-const buttonRemove = document.getElementById("button-remove");
-const outputArray = document.getElementById("output-array");
-
-function updateTextArray() {
+function updateArrayText() {
     outputArray.textContent = array.toString();
 }
 
+// -> EVENTOS
 buttonAdd.addEventListener("click", function () {
-    addItemToArray(inputElementToAdd.value);
-    updateTextArray();
+    addToArray(inputElementToAdd.value);
+    updateArrayText();
 });
 
 buttonRemove.addEventListener("click", function () {
     removeFromArray(inputElementToRemove.value);
-    updateTextArray();
+    updateArrayText();
 });
