@@ -39,7 +39,7 @@ function renderPeopleList(people) {
 
     people.forEach(person => {
         const li = document.createElement("li");
-        li.textContent = person;
+        li.innerHTML = `${person}`; // Aquí se utiliza un template string
         outputPeopleList.appendChild(li);
     });
 }
