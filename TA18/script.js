@@ -38,9 +38,7 @@ function renderPeopleList(people) {
     outputPeopleList.innerHTML = null;
 
     people.forEach(person => {
-        const li = document.createElement("li");
-        li.innerHTML = `${person}`; // Aquí se utiliza un template string
-        outputPeopleList.appendChild(li);
+        outputPeopleList.innerHTML += `<li>${person}</li>`; // Aquí se utiliza un template string
     });
 }
 
